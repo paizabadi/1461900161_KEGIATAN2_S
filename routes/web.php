@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\selectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::resource('mahasiswa', MahasiswaController::class);
+
 Route::get('/', function () {
     return view('home0164');
 });
@@ -24,3 +27,4 @@ Route::get('/artikel', function () {
 Route::get('/kontak', function () {
     return view('kontak0164');
 });
+Route::resource('/select', selectController::class);
