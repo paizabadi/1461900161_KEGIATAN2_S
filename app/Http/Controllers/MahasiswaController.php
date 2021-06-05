@@ -6,11 +6,7 @@ use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $mahasiswa = \App\Models\Mahasiswa::All();
@@ -18,69 +14,30 @@ class MahasiswaController extends Controller
         
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    public function tambah()
     {
-        //
+        return view('tambah0161');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $mahasiswa = DB::class('mahasiswa')->where('id',$id)->get();
+        return view('edit0161',['mahasiswa' => $mahasiswa]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+   
+    public function hapus($id)
     {
-        //
+        DB::class('mahasiswa')->where('id',$id)->delete();
+        return redirect('/mahasiswa');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function cari(Request $request)
     {
-        //
+        $cari=$request->lihat;
+        $mahasiswa=DB::class('mahasiswa')->where('nama','like',"%".$cari."%")->paginate();
+        return view('index0161',['mahasiswa' => $mahasiswa]);
+
     }
 }

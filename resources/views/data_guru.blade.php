@@ -32,24 +32,30 @@ initial-scale=1">
 </head>
 
 <body>
-    <div style="overflow-x:auto;">
-        <a class="tambah" href="{{route( 'mahasiswa.create')}}">
-            Tambah Data </a>
-        <table>
-            <thead>
+
                 <tr>
                     <th>No</th>
-                    <th>Pelajaran</th>
-                    <th>Nama Pelajaran</th>
+                    <th>Guru</th>
+                    <th>NIP</th>
+                    <th>Kelamin</th>
+                    <th>alamat</th>
+                    <th>telpon</th>
+                    <th>username</th>
+                    <th>password</th>
                 </tr>
             </thead>
             <tbody>
                 <?php $no = 1; ?>
-                @foreach ($setup_pelajaran as $sp)
+                @foreach ($data_guru as $dg)
                 <tr>
                     <td>{{$no++}}</td>
-                    <td>{{$sp->id_pelajaran}}</td>
-                    <td>{{$sp->nama_pelajaran}}</td>
+                    <td>{{$dg->nama_guru}}</td>
+                    <td>{{$dg->nip_guru}}</td>
+                    <td>{{$dg->kelamin_guru}}</td>
+                    <td>{{$dg->alamat_guru}}</td>
+                    <td>{{$dg->telpon_guru}}</td>
+                    <td>{{$dg->username_guru}}</td>
+                    <td>{{$dg->password_guru}}</td>
                     <td>
                         <a href="">Edit </a>
                         |

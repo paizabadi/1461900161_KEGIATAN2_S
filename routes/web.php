@@ -27,4 +27,10 @@ Route::get('/artikel', function () {
 Route::get('/kontak', function () {
     return view('kontak0164');
 });
-Route::resource('/select', selectController::class);
+Route::get('/mahasiswa', [usercontroller::class,'index']);
+Route::get('/mahasiswa/tambah', [usercontroller::class,'tambah']);
+Route::get('/mahasiswa/hapus/{id}', [usercontroller::class,'hapus']);
+Route::post('/mahasiswa/store',[usercontroller::class,'store']);
+Route::get('/mahasiswa/edit/{id}',[usercontroller::class,'edit']);
+Route::post('/mahasiswa/update',[usercontroller::class,'update']);
+Route::get('/mahasiswa/cari',[usercontroller::class,'cari']);

@@ -2,7 +2,6 @@
     <meta name="viewport" content="width=device-width,
 initial-scale=1">
     <title>Data Mahasiswa</title>
-    
     <style>
         table {
             border-collapse: collapse;
@@ -34,23 +33,24 @@ initial-scale=1">
 
 <body>
     <div style="overflow-x:auto;">
-        <a class="tambah" href="{{route( 'mahasiswa.create')}}">
-            Tambah Data </a>
+        <a class="tambah" href="{{route(
+'mahasiswa.create')}}"> Tambah Data </a>
         <table>
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Pelajaran</th>
-                    <th>Nama Pelajaran</th>
+                    <th>Nbi</th>
+                    <th>Nama Mahasiswa</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 <?php $no = 1; ?>
-                @foreach ($setup_pelajaran as $sp)
+                @foreach ($mahasiswa as $mhs)
                 <tr>
                     <td>{{$no++}}</td>
-                    <td>{{$sp->id_pelajaran}}</td>
-                    <td>{{$sp->nama_pelajaran}}</td>
+                    <td>{{$mhs->nbi}}</td>
+                    <td>{{$mhs->nama_mhs}}</td>
                     <td>
                         <a href="">Edit </a>
                         |
