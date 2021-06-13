@@ -45,4 +45,3 @@ class MahasiswaController extends Controller
 		return Excel::download(new App\Http\Controllers\ExportMahasiswa, 'Data_1461900161.xlsx');
 	}
 }
-}
